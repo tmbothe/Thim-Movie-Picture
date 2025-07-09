@@ -34,7 +34,7 @@ jobs:
         run: pipenv install
            
       - name: Run ESLint
-        run:  pipenv run lint
+        run:  npm run lint
         working-directory: ${{ env.WORKING_DIR }}
 
   test:
