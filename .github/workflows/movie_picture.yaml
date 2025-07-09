@@ -15,7 +15,8 @@ jobs:
     name: Lint code
     runs-on: ubuntu-latest
     defaults:
-      working-directory: ${{ env.WORKING_DIR }}
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
     
     steps:
       - name: checkout code
@@ -27,7 +28,7 @@ jobs:
       
       - name: Run ESLint
         run: npm run lint
-        working-directory: ${{ env.WORKING_DIR }}
+        
 
   test:
     name: Run Tests
