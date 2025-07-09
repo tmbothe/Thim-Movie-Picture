@@ -9,10 +9,13 @@ on:
 
 env:
   WORKING_DIR: ../../frontend
+
 jobs:
   lint:
     name: Lint code
     runs-on: ubuntu-latest
+    defaults:
+      working-directory: ${{ env.WORKING_DIR }}
     
     steps:
       - name: checkout code
@@ -20,11 +23,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install 
-        working-directory: frontend
+        
       
       - name: Run ESLint
         run: npm run lint
-        working-directory: frontend
+        working-directory: ${{ env.WORKING_DIR }}
 
   test:
     name: Run Tests
