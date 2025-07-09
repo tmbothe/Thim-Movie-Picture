@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  WORKING_DIR: Thim-Movie-Picture/frontend
+  WORKING_DIR: ../Thim-Movie-Picture/frontend
 
 jobs:
   lint:
