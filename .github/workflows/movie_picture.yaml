@@ -35,8 +35,7 @@ jobs:
            
       - name: Run ESLint
         run:  npm run lint
-        working-directory: ${{ env.WORKING_DIR }}
-
+        
   test:
     name: Run Tests
     runs-on: ubuntu-latest
