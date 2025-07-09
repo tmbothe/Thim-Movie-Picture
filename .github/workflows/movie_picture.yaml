@@ -32,10 +32,9 @@ jobs:
 
       - name: Install dependencies
         run: pipenv install
-        
-      
+           
       - name: Run ESLint
-        run:  npx eslint .
+        run:  pipenv run lint
         working-directory: ${{ env.WORKING_DIR }}
 
   test:
