@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ env.WORKING_DIR }}
+        pipenv run lint #working-directory: ${{ env.WORKING_DIR }}
     
     steps:
       - name: checkout code
