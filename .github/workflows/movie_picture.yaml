@@ -11,6 +11,14 @@ env:
   WORKING_DIR: ../Thim-Movie-Picture/frontend
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: 
+           working-directory: ${{ env.WORKING_DIR }}
+           npm ci 
   lint:
     name: Run Linter
     runs-on: ubuntu-latest
@@ -21,17 +29,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install pipenv
-        run: pip install pipenv
-
-      - name: Install dependencies
-        run: pipenv install
            
       - name: Run ESLint
         run:  npm run lint
