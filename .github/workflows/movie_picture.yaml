@@ -53,6 +53,7 @@ jobs:
         uses: docker/setup-build-action@v3
 
       - name: Build Docker image
-        run: docker build -t frontend-app ./frontend
+        run: docker build 
+        working-directory: ${{ env.WORKING_DIR }}
 
 
