@@ -1,0 +1,42 @@
+name: 'Movie Picture Pipeline'
+on:
+  push:
+    branches:
+      - main
+    path:
+      - 'frontend/**'
+  workflow_dispatch:
+
+env:
+  WORKING_DIR: ../Thim-Movie-Picture/frontend
+
+jobs:
+  
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: cd frontend && npm ci
+
+      - name: Run Tests
+        run: npm test
+        working-directory: ${{ env.WORKING_DIR }}
+  
+  build:
+    name: Build Docker image with Git SHA tag
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build  -t frontend-app:${{ github.sha }} .
+        working-directory: ${{ env.WORKING_DIR }}
+
+
