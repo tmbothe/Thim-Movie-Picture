@@ -49,9 +49,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Build
-        uses: docker/setup-build-action@v3
-
       - name: Build Docker image
         run: docker build 
         working-directory: ${{ env.WORKING_DIR }}
