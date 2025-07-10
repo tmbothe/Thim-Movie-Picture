@@ -39,6 +39,7 @@ jobs:
 
       - name: Run Tests
         run: npm test
+        working-directory: ${{ env.WORKING_DIR }}
   
   build:
     name: Build Docker Image
